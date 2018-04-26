@@ -1,8 +1,12 @@
 <?php
 namespace App\Entities;
 use Illuminate\Database\Eloquent\Model;
-class Users extends Model
+
+use App\Entities\Companies;
+class Users extends  Authenticatable
 {
+    use HasApiTokens, Notifiable;
+
     protected $fillable = [
         'name',
         'active',
@@ -14,4 +18,8 @@ class Users extends Model
         'role'
 
     ];
+
+    public function companies(){    
+        return $this->belongsTo(Companies::class,'company_id');
+    }
 }

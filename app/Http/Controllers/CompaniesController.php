@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repositories\ClientsRepository;
-use App\Services\ClientsService;
+use App\Repositories\CompaniesRepository;
+use App\Services\CompaniesService;
 
-class ClientsController extends Controller
+class CompaniesController extends Controller
 {
     private $repository;
+
     private $service;
-    public function __construct(ClientsRepository $repository,ClientsService $service)
+    public function __construct(CompaniesRepository $repository,CompaniesService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
     }
-    public function index($id)
+    public function index()
     {   
-        return $this->repository->findWhere(['company_id'=>$id]);
+        return $this->repository->all();
     }
     public function store(Request $request)
     {
         return  $this->service->create($request->all());
     }
-    public function show($id,$company_id)
+    public function show($id)
     {
-        return  $this->repository->findWhere(['id'=>$id,'company_id'=>$company_id]);
+        return  $this->repository->find($id);
     }
     public function destroy($id)
     {
@@ -32,7 +33,7 @@ class ClientsController extends Controller
     }
     public function update(Request $request,$id)
     {  
-      $this->repository->find($id)->update($request->all());
+        $this->repository->find($id)->update($request->all());
       
     }
 }

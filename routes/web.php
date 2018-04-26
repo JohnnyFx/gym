@@ -13,11 +13,11 @@
 
 
 Route::get(
-    'clients', 'ClientsController@index');
+    'clients/company/{id}', 'ClientsController@index');
 Route::post(
-    'clients', 'ClientsController@store');
+    'clients/company/{$id}', 'ClientsController@store');
 Route::get(
-    'clients/{id}', 'ClientsController@show');
+    'clients/{id}/company/{company_id}', 'ClientsController@show');
 Route::delete(
     'clients/{id}', 'ClientsController@destroy');
 Route::post(

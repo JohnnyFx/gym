@@ -2,25 +2,25 @@
 
 namespace App\Services;
 
-use App\Repositories\ClientsRepository;
-use App\Validators\ClientsValidator;
+use App\Repositories\CompaniesRepository;
+use App\Validators\CompaniesValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
-class ClientsService
+class CompaniesService
 {
     /**
      * 
      *
-     * @var ClientsRepository 
+     * @var CompaniesRepository 
      */
     protected $repository;
     /**
      * 
      *
-     * @var ClientsValidator
+     * @var CompaniesValidator
      */
     protected $validator;
-    public function __construct(ClientsRepository $repository,ClientsValidator $validator)
+    public function __construct(CompaniesRepository $repository,CompaniesValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;

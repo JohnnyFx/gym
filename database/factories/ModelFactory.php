@@ -17,10 +17,13 @@ $factory->define(App\Entities\Users::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'phone' => $password ?: $password = bcrypt('secret'),
+        'phone' => $faker->phoneNumber,
         'password' => str_random(10),
         'remember_token' => str_random(20),
-        'active' => 1
+        'active' => 1,
+        'company_id'=>1,
+        'role'=>1
+
     ];
 });
 
@@ -29,13 +32,16 @@ $factory->define(App\Entities\Clients::class, function (Faker\Generator $faker) 
         'name' => $faker->name,
         'phone' =>$faker->phoneNumber,
         'obs'=>$faker->sentence,
-        'active' => 1
+        'active' => 1,
+        'company_id'=>1
     ];
 });
 
 $factory->define(App\Entities\MuscleGroups::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'icon' => str_random(11)
+        'icon' => str_random(11),
+        'company_id'=>1
+
     ];
 });
